@@ -1,0 +1,53 @@
+# ==============================================================================
+# OPTICGUARD AI - RENDER BLUEPRINT DEPLOYMENT SPECIFICATION
+# Platform: Backend Service on Render with Supabase & Google Gemini AI
+# ==============================================================================
+services:
+  - type: web
+    name: opticguard-backend
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: CLIENT_ORIGIN
+        sync: false
+        value: "https://your-opticguard-client.vercel.app,http://localhost:3000"
+      - key: SUPABASE_URL
+        sync: false
+        placeholder: "https://your-supabase-project.supabase.co"
+      - key: SUPABASE_ANON_KEY
+        sync: false
+        placeholder: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+        placeholder: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+      - key: GEMINI_API_KEY
+        sync: false
+        placeholder: "AIzaSy..."
+      - key: GEMINI_MODEL
+        value: "gemini-2.5-flash"
+      - key: ANOMALY_CONFIDENCE_THRESHOLD
+        value: "0.65"
+      - key: ENABLE_SIMULATED_STREAMS
+        value: "true"
+      - key: ALERT_SOUND_ENABLED
+        value: "true"
+      - key: ALERT_WEBHOOK_URL
+        sync: false
+        value: "https://webhook.site/opticguard-demo-endpoint"
+      - key: STORAGE_DIR
+        value: "./uploads"
+      - key: DATABASE_FILE
+        value: "./src/database/opticguard.db.json"
+

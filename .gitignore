@@ -1,0 +1,28 @@
+# Environment files (Protected from public leaks)
+.env
+*.env
+.env.*
+!.env.example
+!*.env.example
+!client/.env.example
+!server/.env.example
+!backend/.env.example
+
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production builds
+dist/
+*/dist/
+
+# Uploads & Temp files
+backend/uploads/*
+!backend/uploads/.gitkeep
+*.log
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

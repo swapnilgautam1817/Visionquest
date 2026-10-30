@@ -1,0 +1,30 @@
+{
+  "name": "opticguard-ai",
+  "version": "1.0.0",
+  "description": "OpticGuard AI - Automated Visual Intelligence & Anomaly Detection Platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:all": "npm --prefix client install && npm --prefix server install && npm --prefix backend install",
+    "build:client": "npm --prefix client run build",
+    "start": "npm --prefix backend start",
+    "start:backend": "npm --prefix backend start",
+    "start:server": "npm --prefix server start",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "node dev-runner.js"
+  },
+  "keywords": [
+    "opticguard",
+    "visual-intelligence",
+    "anomaly-detection",
+    "supabase",
+    "render",
+    "vercel",
+    "computer-vision",
+    "gemini-ai"
+  ],
+  "author": "OpticGuard Engineering",
+  "license": "ISC"
+}
